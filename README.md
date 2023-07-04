@@ -22,6 +22,19 @@ Otherwise, run the following Go command to install the `gout` package:
 ```sh
 $ go get -u github.com/SkyDDDog/gout
 ```
-### Running Gin
+### Running Gout
 
 First you need to import Gin package for using Gin, one simplest example likes the follow `example.go`:
+~~~go
+package main
+
+import "github.com/SkyDDDog/gout"
+
+func main() {
+	engine := gout.New()
+	engine.GET("/", func(ctx *gout.Context) {
+		ctx.JSON(200, "hello gout")
+	})
+	engine.Run(":12345")
+}
+~~~
